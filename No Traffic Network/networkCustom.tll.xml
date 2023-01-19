@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2022-11-26 12:43:13 by Eclipse SUMO netedit Version 1.15.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="C:\Users\bking\Documents\Uni\Research\Thesis\Simulations\No Traffic Network\networkCustom.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="C:\Users\bking\Documents\Uni\Research\Thesis\Simulations\No Traffic Network\networkCustom.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="0"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.50"/>
+        <rectangular-lane-cut value="0"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="0"/>
+    </pedestrian>
+
+</configuration>
+-->
+
+<tlLogics version="1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+    <tlLogic id="J1" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J10" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="60" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J11" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="60" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J12" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J13" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="60" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J14" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J15" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J16" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="60" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J2" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J3" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J4" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="60" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J5" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J6" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J7" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="60" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J8" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="30" state="rr"/>
+    </tlLogic>
+    <tlLogic id="J9" type="static" programID="0" offset="0">
+        <phase duration="30" state="GG"/>
+        <phase duration="0.10"  state="yy"/>
+        <phase duration="60" state="rr"/>
+    </tlLogic>
+
+    <connection from="-E1" to="-E0" fromLane="0" toLane="0" tl="J1" linkIndex="0"/>
+    <connection from="-E10" to="-E9" fromLane="0" toLane="0" tl="J10" linkIndex="0"/>
+    <connection from="-E11" to="-E10" fromLane="0" toLane="0" tl="J11" linkIndex="0"/>
+    <connection from="-E12" to="-E11" fromLane="0" toLane="0" tl="J12" linkIndex="0"/>
+    <connection from="-E13" to="-E12" fromLane="0" toLane="0" tl="J13" linkIndex="0"/>
+    <connection from="-E14" to="-E13" fromLane="0" toLane="0" tl="J14" linkIndex="0"/>
+    <connection from="-E15" to="-E14" fromLane="0" toLane="0" tl="J15" linkIndex="0"/>
+    <connection from="-E16" to="-E15" fromLane="0" toLane="0" tl="J16" linkIndex="0"/>
+    <connection from="-E2" to="-E1" fromLane="0" toLane="0" tl="J3" linkIndex="0"/>
+    <connection from="-E3" to="-E2" fromLane="0" toLane="0" tl="J4" linkIndex="0"/>
+    <connection from="-E4" to="-E3" fromLane="0" toLane="0" tl="J2" linkIndex="0"/>
+    <connection from="-E5" to="-E4" fromLane="0" toLane="0" tl="J5" linkIndex="0"/>
+    <connection from="-E6" to="-E5" fromLane="0" toLane="0" tl="J6" linkIndex="0"/>
+    <connection from="-E7" to="-E6" fromLane="0" toLane="0" tl="J7" linkIndex="0"/>
+    <connection from="-E8" to="-E7" fromLane="0" toLane="0" tl="J8" linkIndex="0"/>
+    <connection from="-E9" to="-E8" fromLane="0" toLane="0" tl="J9" linkIndex="0"/>
+    <connection from="E0" to="E1" fromLane="0" toLane="0" tl="J1" linkIndex="1"/>
+    <connection from="E10" to="E11" fromLane="0" toLane="0" tl="J11" linkIndex="1"/>
+    <connection from="E11" to="E12" fromLane="0" toLane="0" tl="J12" linkIndex="1"/>
+    <connection from="E12" to="E13" fromLane="0" toLane="0" tl="J13" linkIndex="1"/>
+    <connection from="E13" to="E14" fromLane="0" toLane="0" tl="J14" linkIndex="1"/>
+    <connection from="E14" to="E15" fromLane="0" toLane="0" tl="J15" linkIndex="1"/>
+    <connection from="E15" to="E16" fromLane="0" toLane="0" tl="J16" linkIndex="1"/>
+    <connection from="E2" to="E3" fromLane="0" toLane="0" tl="J4" linkIndex="1"/>
+    <connection from="E3" to="E4" fromLane="0" toLane="0" tl="J2" linkIndex="1"/>
+    <connection from="E4" to="E5" fromLane="0" toLane="0" tl="J5" linkIndex="1"/>
+    <connection from="E5" to="E6" fromLane="0" toLane="0" tl="J6" linkIndex="1"/>
+    <connection from="E6" to="E7" fromLane="0" toLane="0" tl="J7" linkIndex="1"/>
+    <connection from="E7" to="E8" fromLane="0" toLane="0" tl="J8" linkIndex="1"/>
+    <connection from="E8" to="E9" fromLane="0" toLane="0" tl="J9" linkIndex="1"/>
+    <connection from="E9" to="E10" fromLane="0" toLane="0" tl="J10" linkIndex="1"/>
+</tlLogics>

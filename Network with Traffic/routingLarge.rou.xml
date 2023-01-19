@@ -1,0 +1,20 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType emissionClass="PHEMlight/PC_G_EU4" id="vehType" />
+    <vType id="slow" accel="0.8" decel="4.5" sigma="0.5" length="5" maxSpeed="3" />
+    <vType id="standard" accel="0.8" decel="4.5" sigma="0.5" length="5" maxSpeed="15" />
+    
+    <route id="r_0" edges="E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16" />
+    
+    <vehicle id="v_0" depart="0.00" route="r_0" color="0,24,255" type="vehType" />
+    <flow id="f_0" begin="1" from="E2" to="E16" end="1.00" number="0" type="standard" />
+    <flow id="f_1" begin="1" from="E3" to="E16" end="1.00" number="1" type="standard" />
+    <flow id="f_2" begin="1" from="E4" to="E16" end="1.00" number="1" type="standard" />
+    <flow id="f_3" begin="1" from="E5" to="E16" end="1.00" number="1" type="standard" />
+    <flow id="f_4" begin="1" from="E6" to="E16" end="1.00" number="1" type="standard" />
+    <flow id="f_5" begin="1" from="E7" to="E16" end="1.00" number="0" type="standard" />
+    <flow id="f_6" begin="1" from="E8" to="E16" end="1.00" number="1" type="standard" />
+    <flow id="f_7" begin="1" from="E9" to="E16" end="1.00" number="1" type="standard" />
+    <flow id="f_8" begin="1" from="E10" to="E16" end="1.00" number="0" type="standard" />
+    <flow id="f_9" begin="1" from="E11" to="E16" end="1.00" number="1" type="standard" />
+    <flow id="f_10" begin="1" from="E0" to="E16" end="1.00" number="1" type="standard" departPos="500" />
+</routes>

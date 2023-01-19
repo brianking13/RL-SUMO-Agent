@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-01-17 13:13:05 by Eclipse SUMO sumo Version 1.15.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="networkCustom.net.xml"/>
+        <route-files value="routingCustom.rou.xml"/>
+        <additional-files value="additionalsCustom.xml"/>
+    </input>
+
+    <traci_server>
+        <remote-port value="59739"/>
+    </traci_server>
+
+    <gui_only>
+        <quit-on-end value="true"/>
+        <start value="true"/>
+    </gui_only>
+
+</configuration>
+-->
+
+<snapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/state_file.xsd" version="1.15.0" time="338.00" type="micro">
+    <route id="!f_0" state="1" edges="E2 E16"/>
+    <route id="!f_0.0!var#1" state="0" edges="E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="!f_11" state="1" edges="E0 E16"/>
+    <route id="!f_11.0!var#1" state="0" edges="E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="!f_12" state="1" edges="E0 E16"/>
+    <route id="!f_12.0!var#1" state="0" edges="E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="!f_15" state="1" edges="E0 E16"/>
+    <route id="!f_15.0!var#1" state="0" edges="E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="!f_16" state="1" edges="E0 E16"/>
+    <route id="!f_16.0!var#1" state="0" edges="E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="!f_17" state="1" edges="E0 E16"/>
+    <route id="!f_17.0!var#1" state="0" edges="E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="!f_6" state="1" edges="E8 E16"/>
+    <route id="!f_6.0!var#1" state="0" edges="E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="!f_8" state="1" edges="E10 E16"/>
+    <route id="!f_8.0!var#1" state="0" edges="E10 E11 E12 E13 E14 E15 E16"/>
+    <route id="r_0" state="1" edges="E0 E1 E2 E3 E4 E5 E6 E7 E8 E9 E10 E11 E12 E13 E14 E15 E16"/>
+    <delay number="9" begin="9" end="0" depart="0.00" time="0.00"/>
+    <vType id="slow" length="5.00" maxSpeed="3.00" accel="0.8" decel="4.5" sigma="0.5"/>
+    <vType id="standard" length="5.00" maxSpeed="15.00" accel="0.8" decel="4.5" sigma="0.5"/>
+    <vType id="vehType" emissionClass="PHEMlight/PC_G_EU4"/>
+    <vType id="vehType@v_0" maxSpeed="40.00" emissionClass="PHEMlight/PC_G_EU4"/>
+    <vehicle id="f_0.0" type="standard" depart="0.00" route="!f_0.0!var#1" distance="3174.3 1" speedFactor="0.9383" reroute="1" state="262242 0 3 5.10 0 56.97 337000 0 0" pos="1031.22 1026.22 12.71" speed="12.71 14.91" angle="90.00" posLat="0.00" waitingTime="100000 0">
+        <device id="routing_f_0.0" state="0"/>
+    </vehicle>
+    <vehicle id="f_11.0" type="standard" depart="0.00" departPos="200.00" route="!f_11.0!var#1" distance="3851.4 1" speedFactor="1.0303" reroute="1" state="262250 0 4 200.00 1000 19.97 337000 0 0" pos="1104.00 1099.00 0.00" speed="0.00 1.13" angle="90.00" posLat="0.00" waitingTime="100000 1 0 1000">
+        <device id="routing_f_11.0" state="0"/>
+    </vehicle>
+    <vehicle id="f_12.0" type="standard" depart="0.00" departPos="300.00" route="!f_12.0!var#1" distance="3851.4 1" speedFactor="0.8310" reroute="1" state="262250 0 4 300.00 2000 26.14 337000 0 0" pos="1111.50 1106.50 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 1 0 2000">
+        <device id="routing_f_12.0" state="0"/>
+    </vehicle>
+    <vehicle id="f_15.0" type="standard" depart="0.00" departPos="600.00" route="!f_15.0!var#1" distance="3851.4 1" speedFactor="1.0458" reroute="1" state="262250 0 4 600.00 4000 45.64 337000 0 0" pos="1119.00 1114.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 1 0 4000">
+        <device id="routing_f_15.0" state="0"/>
+    </vehicle>
+    <vehicle id="f_16.0" type="standard" depart="0.00" departPos="700.00" route="!f_16.0!var#1" distance="3851.4 1" speedFactor="0.8860" reroute="1" state="262250 0 4 700.00 5000 51.81 337000 0 0" pos="1126.50 1121.50 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 1 0 5000">
+        <device id="routing_f_16.0" state="0"/>
+    </vehicle>
+    <vehicle id="f_17.0" type="standard" depart="0.00" departPos="800.00" route="!f_17.0!var#1" distance="3851.4 1" speedFactor="0.9379" reroute="1" state="262250 0 4 800.00 7000 57.97 337000 0 0" pos="1134.00 1129.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 1 0 7000">
+        <device id="routing_f_17.0" state="0"/>
+    </vehicle>
+    <vehicle id="f_6.0" type="standard" depart="0.00" route="!f_6.0!var#1" distance="2755.3 1" speedFactor="1.0104" reroute="1" state="262242 0 3 5.10 0 98.22 337000 0 0" pos="831.57 826.57 14.63" speed="14.63 14.91" angle="90.00" posLat="0.00" waitingTime="100000 1 68000 78000">
+        <device id="routing_f_6.0" state="0"/>
+    </vehicle>
+    <vehicle id="f_8.0" type="standard" depart="0.00" route="!f_8.0!var#1" distance="3298.3 1" speedFactor="1.0827" reroute="1" state="262242 0 3 5.10 0 61.99 337000 0 0" pos="832.00 827.00 9.02" speed="9.02 13.52" angle="90.00" posLat="0.00" waitingTime="100000 1 68000 76000">
+        <device id="routing_f_8.0" state="0"/>
+    </vehicle>
+    <vehicle id="v_0" type="vehType@v_0" depart="0.00" color="0,24,255" route="r_0" distance="4985.4 0" speedFactor="1.0600" state="2051 0 5 5.10 0 213.42 337000 0 0" pos="5.00 0.00 1.24" speed="1.24 5.74" angle="90.00" posLat="-1.60" waitingTime="100000 0"/>
+    <vehicleTransfer id="v_0" depart="419207"/>
+    <lane id="E11_0">
+        <vehicles value="f_6.0"/>
+    </lane>
+    <lane id="E13_0">
+        <vehicles value="f_8.0"/>
+    </lane>
+    <lane id="E4_0">
+        <vehicles value="f_11.0 f_12.0 f_15.0 f_16.0 f_17.0"/>
+    </lane>
+    <lane id="E5_0">
+        <vehicles value="f_0.0"/>
+    </lane>
+    <tlLogic id="J1" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J10" programID="0" phase="2" duration="38000"/>
+    <tlLogic id="J11" programID="0" phase="2" duration="38000"/>
+    <tlLogic id="J12" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J13" programID="0" phase="2" duration="38000"/>
+    <tlLogic id="J14" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J15" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J16" programID="0" phase="2" duration="38000"/>
+    <tlLogic id="J2" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J3" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J4" programID="0" phase="2" duration="38000"/>
+    <tlLogic id="J5" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J6" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J7" programID="0" phase="2" duration="38000"/>
+    <tlLogic id="J8" programID="0" phase="2" duration="8000"/>
+    <tlLogic id="J9" programID="0" phase="2" duration="38000"/>
+</snapshot>

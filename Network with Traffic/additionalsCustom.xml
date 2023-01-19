@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-01-12 19:48:03 by Eclipse SUMO netedit Version 1.15.0
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <!-- Detectors -->
+    <inductionLoop id="ind_0" lane="E0_0" pos="17.04" period="300.00" file="ind_0.xml"/>
+    <inductionLoop id="ind_1" lane="E1_0" pos="30.00" period="300.00" file="ind_1.xml"/>
+    <inductionLoop id="ind_2" lane="E2_0" pos="59.99" period="300.00" file="ind_2.xml"/>
+    <inductionLoop id="ind_3" lane="E3_0" pos="42.64" period="300.00" file="ind_3.xml"/>
+    <inductionLoop id="ind_4" lane="E4_0" pos="50.07" period="300.00" file="ind_4.xml"/>
+    <inductionLoop id="ind_5" lane="E5_0" pos="55.80" period="300.00" file="ind_5.xml"/>
+    <inductionLoop id="ind_6" lane="E6_0" pos="60.22" period="300.00" file="ind_6.xml"/>
+    <inductionLoop id="ind_7" lane="E7_0" pos="68.09" period="300.00" file="ind_7.xml"/>
+    <inductionLoop id="ind_8" lane="E8_0" pos="60.80" period="300.00" file="ind_8.xml"/>
+    <inductionLoop id="ind_9" lane="E9_0" pos="28.99" period="300.00" file="ind_9.xml"/>
+    <inductionLoop id="ind_10" lane="E10_0" pos="32.56" period="300.00" file="ind_10.xml"/>
+    <inductionLoop id="ind_11" lane="E11_0" pos="38.19" period="300.00" file="ind_11.xml"/>
+    <inductionLoop id="ind_12" lane="E12_0" pos="54.05" period="300.00" file="ind_12.xml"/>
+    <inductionLoop id="ind_13" lane="E13_0" pos="48.90" period="300.00" file="ind_13.xml"/>
+    <inductionLoop id="ind_14" lane="E14_0" pos="44.81" period="300.00" file="ind_14.xml"/>
+    <inductionLoop id="ind_15" lane="E15_0" pos="59.34" period="300.00" file="ind_15.xml"/>
+    <inductionLoop id="ind_16" lane="E16_0" pos="37.97" period="300.00" file="ind_16.xml"/>
+</additional>
