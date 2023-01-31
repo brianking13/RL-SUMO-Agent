@@ -82,8 +82,8 @@ def build_model(states, actions):
     model.add(Dense(128, activation='relu', input_shape = (1,states[0])))
     model.add(Dense(128, activation='relu'))
     model.add(Dense(128, activation='relu'))
-    # model.add(Dense(128, activation='relu'))
-    # model.add(Dense(128, activation='relu'))
+    model.add(Dense(128, activation='relu'))
+    model.add(Dense(128, activation='relu'))
     model.add(Dense(actions, activation ='linear'))
     return model
 
@@ -103,8 +103,8 @@ print(model.summary())
 def build_agent(model, actions):
     # policy = BoltzmannQPolicy()
     # policy = EpsGreedyQPolicy(eps=0.1)
-    policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr='eps', value_max=1, value_min=.1, value_test=.00001,
-                                  nb_steps=1000)
+    policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr='eps', value_max=.9, value_min=.1, value_test=.00001,
+                                   nb_steps=7500)
     memory = SequentialMemory(limit=100000, window_length =1)
     dqn = DQNAgent(model=model, memory=memory, policy= policy, nb_actions=actions, nb_steps_warmup=100, target_model_update = 1e-2)
     return dqn
@@ -112,7 +112,7 @@ def build_agent(model, actions):
 dqn = build_agent(model, actions)
 dqn.compile(Adam(learning_rate=1e-3), metrics = ['mae'])
 
-history = dqn.fit(env, nb_steps =2000, visualize=False, verbose =1)
+history = dqn.fit(env, nb_steps =8000, visualize=False, verbose =1)
 # summarize history for accuracy
 plt.plot(history.history['episode_reward'])
 plt.ylabel('reward')

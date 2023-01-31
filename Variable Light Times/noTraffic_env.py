@@ -50,7 +50,7 @@ class VehEnv(Env):
             self.action_space = Discrete(48)
             
             #observations
-            self.observation_space = Box(low=np.array([0,0,0,0]),high=np.array([1,1,1,1]))
+            self.observation_space = Box(low=np.array([0,0,0,0,0]),high=np.array([1,1,1,1,1]))
             
             # intialize parameters
             self.fuel_consumption = []
@@ -77,7 +77,6 @@ class VehEnv(Env):
         # if vehicle exists, set vehicle speed based on action and retrieve data
         if 'v_0' in vehicle_list:
            traci.vehicle.setSpeed('v_0',action+1)
-           print(action+1)
            
            # for each intersection, reset the reward to 0
            reward = 0
@@ -92,8 +91,6 @@ class VehEnv(Env):
                reward = reward + sec_reward
                if intersection == True:
                    break
-               
-        print(self.state)        
         return self.state, reward, done, info
              
     
@@ -174,15 +171,16 @@ class VehEnv(Env):
         # NEXT PHASE TIME and NEXT PHASE
         index = intersection_distances.index(gap) 
         current_light = light_names[index]
+        # get time until next phase
         phase_time = traci.trafficlight.getNextSwitch(current_light) - traci.simulation.getTime()
-
+        
+        # get next phase color
         current_phase = traci.trafficlight.getRedYellowGreenState(current_light)
-        print(current_phase)
         if current_phase == 'RR' or current_phase == 'rr':
             phase = 0
         else:
             phase = 1
-
+        
         previous_gap = self.state[1]*1000
         if gap > previous_gap:
             # print('reached intersection')
@@ -190,13 +188,20 @@ class VehEnv(Env):
         else:
             intersection = False
         
-        # print("Phase: ",phase)
-        # print("Phase time: ",phase_time)
-        # print("Gap: ",gap)
+        # return the length of a green light
+        phase_time = traci.trafficlight.getPhaseDuration(current_light)
+        if phase ==1:
+            green_light_time = phase_time/60
+        else:
+            green_light_time = 1-phase_time/60
         
-        self.state=[v/self.max_speed,gap/1000,phase_time/100,phase]
+        self.state=[v/self.max_speed,gap/1000,phase_time/100,phase,green_light_time]
 
-        if self.sim_length <= 0 or vehicle_list == [] or traci.simulation.getTime() > 400:
+        # if self.sim_length <= 0 or vehicle_list == [] or traci.simulation.getTime() > 400:
+        # when testing, set the sim to terminate at 8000 meters instead of at a red light
+        if gap < 15 and pos[0] > 8000:
+            self.reset()
+        if v < 1:
             done = True
             # print("BOOTSTRAP HERE!!!!")
         else:
@@ -212,9 +217,17 @@ class VehEnv(Env):
     def reward_function(self,v,fc):
         # reward =  (5000/(fc/(v+.01)-.01)-1)/50-0.01
         # reward =  1/(2.7**(0.05*(fc/500)**2))
-        reward = 1/(2.7**(0.005*(20-v)**2))-0.5 # put this in graphing calculator to see speed vs reward
+        # reward = 1/(2.7**(0.005*(20-v)**2))-0.5 # put this in graphing calculator to see speed vs reward
+        reward = 0
+        if v < 30 and v > 10:
+            reward += 1
+        else:
+            reward -= .5
+        # reward = 1/(.01+fc/(v+.01))
         if v < .1 or v > 40:
             reward -= 1
+        # print('Reward: ',reward)
+        # reward -= fc/8000
         return reward
         
     
@@ -282,8 +295,8 @@ class VehEnv(Env):
         else:
             sumoBinary = checkBinary('sumo-gui') 
             
-        # edit network each run
-        tree = ET.parse('networkCustom.nod.xml')
+        # edit intersection positions after each episode
+        tree = ET.parse('customNetwork2.nod.xml')
         root = tree.getroot()
         for nodes in root.iter('nodes'):
             for intersection_num in range(1,17):
@@ -295,20 +308,41 @@ class VehEnv(Env):
                         # print(intersect)
                         node.attrib['x'] = str(intersect)
                         # print(node.attrib['x'])
-        tree.write('networkCustom.nod.xml')             
+        tree.write('customNetwork2.nod.xml')  
+
+        # edit network timing after each episode
+        tree = ET.parse('customNetwork2.tll.xml')
+        root = tree.getroot()
+        for nodes in root.iter('tlLogics'):
+            for logic in root.iter('tlLogic'):
+                logic.attrib['offset'] = str(random.randint(1,60))
+                # make all lights have 60 seconds cycles
+                rand_time =random.randint(10,50)
+                green = rand_time
+                red = 60 - rand_time
+                for phase in logic.iter('phase'):   
+                    if phase.attrib['state'] == "GG":
+                        phase.attrib['duration'] = str(green)
+                    elif phase.attrib['state'] == "rr":
+                        phase.attrib['duration'] = str(red)
+        tree.write('customNetwork2.tll.xml')   
+                   
      
-        os.system('netconvert --node-files=networkCustom.nod.xml --edge-files=networkCustom.edg.xml \
-                  --connection-files=networkCustom.con.xml  \
-                      --tllogic-files=networkCustom.tll.xml  \
-          --output-file=networkCustom.net.xml')
+        os.system('netconvert --node-files=customNetwork2.nod.xml --edge-files=customNetwork2.edg.xml \
+                  --connection-files=customNetwork2.con.xml  \
+                      --tllogic-files=customNetwork2.tll.xml  \
+          --output-file=customNetwork2.net.xml')
           
-        traci.start([sumoBinary, "-n", "networkCustom.net.xml", "-r", "routingLarge.rou.xml", "--start", "--quit-on-end"])
+        traci.start([sumoBinary, "-n", "customNetwork2.net.xml", "-r", "routingLarge.rou.xml", "--start", "--quit-on-end"])
         
         
+        traci.simulationStep()
         traci.simulationStep()
 
         
         if self.visualizer:
+            # make GUI objects visible
+            traci.gui.setSchema('View #0', 'big_vehicle')
             self.speeds=[]
             self.accels=[]
             self.total_reward = []
@@ -320,7 +354,9 @@ class VehEnv(Env):
         traci.vehicle.setMaxSpeed('v_0',self.max_speed)
         v = traci.vehicle.getSpeed('v_0')
 
-        self.state=[v/self.max_speed,0,0,0]
+        self.state=[v/self.max_speed,0,0,0,0]
+        
+        self.step(20)
 
         return self.state
     

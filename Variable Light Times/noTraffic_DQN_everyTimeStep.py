@@ -1,20 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov 25 12:15:44 2022
-
-@author: bking
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 15 15:13:18 2022
+Created on Tue Jan 10 20:46:28 2023
 
 @author: bking
 """
 
 
 import random
-from noTraffic_env import VehEnv
+from noTraffic_env_everyTimeStep import VehEnv
 import matplotlib.pyplot as plt
 
 # imports for RL
@@ -104,15 +97,15 @@ def build_agent(model, actions):
     # policy = BoltzmannQPolicy()
     # policy = EpsGreedyQPolicy(eps=0.1)
     policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr='eps', value_max=1, value_min=.1, value_test=.00001,
-                                  nb_steps=1000)
+                                  nb_steps=10000)
     memory = SequentialMemory(limit=100000, window_length =1)
-    dqn = DQNAgent(model=model, memory=memory, policy= policy, nb_actions=actions, nb_steps_warmup=100, target_model_update = 1e-2)
+    dqn = DQNAgent(model=model, memory=memory, policy= policy, nb_actions=actions, nb_steps_warmup=100, target_model_update = 1e-3)
     return dqn
 
 dqn = build_agent(model, actions)
 dqn.compile(Adam(learning_rate=1e-3), metrics = ['mae'])
 
-history = dqn.fit(env, nb_steps =2000, visualize=False, verbose =1)
+history = dqn.fit(env, nb_steps =70000, visualize=False, verbose =1)
 # summarize history for accuracy
 plt.plot(history.history['episode_reward'])
 plt.ylabel('reward')
