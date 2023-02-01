@@ -82,16 +82,19 @@ class VehEnv(Env):
            reward = 0
            
            # for 5000 seconds, run sim. Break if an intersection is passed
+           time = 0
            for i in range(1,5000):
                traci.simulationStep()
                self.state, sec_reward, done, info,intersection = self.InterStep(action)
+               time +=1
                if done == True:
                    break
                # accumulate the reward over time
                reward = reward + sec_reward
                if intersection == True:
                    break
-        return self.state, reward, done, info
+               
+        return self.state, reward/time, done, info
              
     
     def InterStep(self,action):
@@ -171,6 +174,7 @@ class VehEnv(Env):
         # NEXT PHASE TIME and NEXT PHASE
         index = intersection_distances.index(gap) 
         current_light = light_names[index]
+
         # get time until next phase
         phase_time = traci.trafficlight.getNextSwitch(current_light) - traci.simulation.getTime()
         
@@ -200,12 +204,14 @@ class VehEnv(Env):
         # if self.sim_length <= 0 or vehicle_list == [] or traci.simulation.getTime() > 400:
         # when testing, set the sim to terminate at 8000 meters instead of at a red light
         if gap < 15 and pos[0] > 8000:
+            print('MADE IT FAR!!!!!!!!!!!!!!!!!!!!!!!!!!!')
             self.reset()
-        if v < 1:
+        if v < 5 and accel>0 :
             done = True
             # print("BOOTSTRAP HERE!!!!")
         else:
             done = False
+        
             
             
         info = {}
@@ -225,7 +231,7 @@ class VehEnv(Env):
             reward -= .5
         # reward = 1/(.01+fc/(v+.01))
         if v < .1 or v > 40:
-            reward -= 1
+            reward -= 2
         # print('Reward: ',reward)
         # reward -= fc/8000
         return reward

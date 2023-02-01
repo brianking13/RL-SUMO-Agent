@@ -11,3 +11,6 @@ average_data=[]
 for ind in range(len(data) - window + 1):
     average_data.append(np.mean(data[ind:ind+window]))
 plt.plot(average_data)
+
+
+plt.plot(env.get_speeds())

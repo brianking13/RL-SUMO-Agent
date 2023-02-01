@@ -2,21 +2,21 @@
     <location netOffset="0.00,0.00" convBoundary="0.00,0.00,17000.00,0.00" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!" />
 
     <node id="J0" x="0.00" y="0.00" type="dead_end" />
-    <node id="J1" x="1104" y="0.00" type="traffic_light" tl="J1" />
-    <node id="J10" x="10137" y="0.00" type="traffic_light" tl="J10" />
-    <node id="J11" x="11038" y="0.00" type="traffic_light" tl="J11" />
-    <node id="J12" x="12036" y="0.00" type="traffic_light" tl="J12" />
-    <node id="J13" x="13075" y="0.00" type="traffic_light" tl="J13" />
-    <node id="J14" x="14172" y="0.00" type="traffic_light" tl="J14" />
-    <node id="J15" x="15079" y="0.00" type="traffic_light" tl="J15" />
-    <node id="J16" x="15894" y="0.00" type="traffic_light" tl="J16" />
+    <node id="J1" x="1136" y="0.00" type="traffic_light" tl="J1" />
+    <node id="J10" x="10150" y="0.00" type="traffic_light" tl="J10" />
+    <node id="J11" x="10988" y="0.00" type="traffic_light" tl="J11" />
+    <node id="J12" x="11849" y="0.00" type="traffic_light" tl="J12" />
+    <node id="J13" x="12834" y="0.00" type="traffic_light" tl="J13" />
+    <node id="J14" x="14190" y="0.00" type="traffic_light" tl="J14" />
+    <node id="J15" x="15181" y="0.00" type="traffic_light" tl="J15" />
+    <node id="J16" x="16189" y="0.00" type="traffic_light" tl="J16" />
     <node id="J17" x="17000.00" y="0.00" type="dead_end" />
-    <node id="J2" x="2099" y="0.00" type="traffic_light" tl="J2" />
-    <node id="J3" x="2815" y="0.00" type="traffic_light" tl="J3" />
-    <node id="J4" x="3918" y="0.00" type="traffic_light" tl="J4" />
-    <node id="J5" x="4851" y="0.00" type="traffic_light" tl="J5" />
-    <node id="J6" x="6045" y="0.00" type="traffic_light" tl="J6" />
-    <node id="J7" x="6962" y="0.00" type="traffic_light" tl="J7" />
-    <node id="J8" x="7898" y="0.00" type="traffic_light" tl="J8" />
-    <node id="J9" x="8999" y="0.00" type="traffic_light" tl="J9" />
+    <node id="J2" x="2086" y="0.00" type="traffic_light" tl="J2" />
+    <node id="J3" x="3136" y="0.00" type="traffic_light" tl="J3" />
+    <node id="J4" x="4067" y="0.00" type="traffic_light" tl="J4" />
+    <node id="J5" x="5053" y="0.00" type="traffic_light" tl="J5" />
+    <node id="J6" x="5835" y="0.00" type="traffic_light" tl="J6" />
+    <node id="J7" x="7152" y="0.00" type="traffic_light" tl="J7" />
+    <node id="J8" x="8130" y="0.00" type="traffic_light" tl="J8" />
+    <node id="J9" x="8976" y="0.00" type="traffic_light" tl="J9" />
 </nodes>

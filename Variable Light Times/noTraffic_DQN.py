@@ -102,17 +102,17 @@ print(model.summary())
 
 def build_agent(model, actions):
     # policy = BoltzmannQPolicy()
-    # policy = EpsGreedyQPolicy(eps=0.1)
-    policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr='eps', value_max=.9, value_min=.1, value_test=.00001,
-                                   nb_steps=7500)
+    policy = EpsGreedyQPolicy(eps=0.3)
+    # policy = LinearAnnealedPolicy(EpsGreedyQPolicy(), attr='eps', value_max=.9, value_min=.3, value_test=.01,
+                                   # nb_steps=200)
     memory = SequentialMemory(limit=100000, window_length =1)
-    dqn = DQNAgent(model=model, memory=memory, policy= policy, nb_actions=actions, nb_steps_warmup=100, target_model_update = 1e-2)
+    dqn = DQNAgent(model=model, memory=memory, policy= policy, nb_actions=actions, nb_steps_warmup=100, target_model_update = 1e-1)
     return dqn
 
 dqn = build_agent(model, actions)
 dqn.compile(Adam(learning_rate=1e-3), metrics = ['mae'])
 
-history = dqn.fit(env, nb_steps =8000, visualize=False, verbose =1)
+history = dqn.fit(env, nb_steps =1000, visualize=False, verbose =1)
 # summarize history for accuracy
 plt.plot(history.history['episode_reward'])
 plt.ylabel('reward')
