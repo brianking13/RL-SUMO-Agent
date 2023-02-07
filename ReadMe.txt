@@ -8,6 +8,7 @@ Network with traffic-  at each intersection, RL agent commands a velocity. Other
 Test Networks- used for testing basic functionality of SUMO
 
 Dependencies:
+python==3.9.12
 numpy==1.19.5
 keras==2.10.0
 keras_rl2==1.0.5
